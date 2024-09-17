@@ -4,8 +4,8 @@
 //Jag hårdkodar in maten bara för att hålla det simpelt
 var foodPosition = new Coordinate
 {
-X = 5,
-Y = 5
+    X = 5,
+    Y = 5
 };
 Console.SetCursorPosition(foodPosition.X, foodPosition.Y);
 Console.Write('¤');
@@ -22,60 +22,60 @@ snake.Body.Enqueue(new Coordinate { X = 2, Y = 0 });
 //Rita ut ormen
 foreach (var coordinate in snake.Body)
 {
-Console.SetCursorPosition(coordinate.X, coordinate.Y);
-Console.Write('@');
+    Console.SetCursorPosition(coordinate.X, coordinate.Y);
+    Console.Write('@');
 }
 
 while (true)
 {
 
-ConsoleKeyInfo cki = new ConsoleKeyInfo();
-if (Console.KeyAvailable == false)
-{
-cki = Console.ReadKey();
-}
-if (cki.Key == ConsoleKey.LeftArrow)
-{
-var newHeadPosition = new Coordinate
-{
-X = -1,
-Y = 0
-};
-snake.Move(newHeadPosition, foodPosition);
+    ConsoleKeyInfo cki = new ConsoleKeyInfo();
+    if (Console.KeyAvailable == false)
+    {
+        cki = Console.ReadKey();
+    }
+    if (cki.Key == ConsoleKey.LeftArrow)
+    {
+        var newHeadPosition = new Coordinate
+        {
+            X = -1,
+            Y = 0
+        };
+        snake.Move(newHeadPosition, foodPosition);
 
-}
-else if (cki.Key == ConsoleKey.RightArrow)
-{
-var newHeadPosition = new Coordinate
-{
-X = 1,
-Y = 0
-};
-snake.Move(newHeadPosition, foodPosition);
-
-
-}
-else if (cki.Key == ConsoleKey.UpArrow)
-{
-var newHeadPosition = new Coordinate
-{
-X = 0,
-Y = -1
-};
-snake.Move(newHeadPosition, foodPosition);
+    }
+    else if (cki.Key == ConsoleKey.RightArrow)
+    {
+        var newHeadPosition = new Coordinate
+        {
+            X = 1,
+            Y = 0
+        };
+        snake.Move(newHeadPosition, foodPosition);
 
 
-}
-else if (cki.Key == ConsoleKey.DownArrow)
-{
-var newHeadPosition = new Coordinate
-{
-X = 0,
-Y = 1
-};
-snake.Move(newHeadPosition, foodPosition);
+    }
+    else if (cki.Key == ConsoleKey.UpArrow)
+    {
+        var newHeadPosition = new Coordinate
+        {
+            X = 0,
+            Y = -1
+        };
+        snake.Move(newHeadPosition, foodPosition);
 
-}
+
+    }
+    else if (cki.Key == ConsoleKey.DownArrow)
+    {
+        var newHeadPosition = new Coordinate
+        {
+            X = 0,
+            Y = 1
+        };
+        snake.Move(newHeadPosition, foodPosition);
+
+    }
 }
 
 public class Coordinate()
@@ -110,7 +110,7 @@ public class Snake()
         //Kolla om mat finns på den nya positionen 
         bool foodOnNextPosition = newHead.X == foodPosition.X && newHead.Y == foodPosition.Y;
 
-        
+
 
 
         //Om ormen har INTE har ätit, tar vi bort den sista kroppsdelen(svansen) som är längst fram i kön
